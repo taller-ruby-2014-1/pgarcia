@@ -1,0 +1,35 @@
+
+<h1>Welcome#index</h1>
+<p>Find me in app/views/welcome/index.html.erb</p>
+
+<h1>Bienvenidos a mi super blog!</h1> 
+
+
+<h1>Mis posts</h1>
+
+<%= link_to "Mi Blog", controller: "posts" %>	
+
+<%= link_to 'Nuevo Post', new_post_path %>
+
+<%= link_to 'Back', posts_path %>
+
+<table>
+	<tr>
+		<th>Title</th>
+		<th>Text</th>
+		<th></th>
+		<th></th>
+		<th></th>
+	</tr>
+<% @posts.each do |post| %>
+	<tr>
+		<td><%= post.title %></td>
+		<td><%= post.text %></td>
+		<td><%= link_to 'Show', post_path(post) %></td>
+		<td><%= link_to 'Edit', edit_post_path(post) %></td>
+		<td><%= link_to 'Destroy', post_path(post), method: :delete, data: { confirm: 'Estas seguro?'} %></td>
+	</tr>
+	<% end %>
+	</table>
+
+	
